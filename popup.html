@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Video Recorder</title>
+  <link rel="stylesheet" href="css/popup.css">
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" width="28" height="28">
+        <path fill="#fff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+      </svg>
+      <div>
+        <h1>Tab Video Recorder</h1>
+        <p>Grava o vídeo e o áudio desta aba</p>
+      </div>
+    </div>
+    <button id="btnRefresh" class="btn-icon" title="Detectar vídeo novamente">
+      <svg viewBox="0 0 24 24" width="18" height="18">
+        <path fill="currentColor" d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="tab-info">
+    <div id="tabTitle" class="tab-title">—</div>
+    <div id="tabUrl" class="tab-url"></div>
+  </div>
+
+  <div id="status" class="status hidden"></div>
+
+  <div class="content">
+    <section class="card">
+      <div class="card-head">
+        <span class="card-label">Vídeo detectado</span>
+        <span id="detectBadge" class="badge">—</span>
+      </div>
+      <div id="detectInfo" class="detect-info">Procurando vídeo…</div>
+      <div id="detectHint" class="hint hidden"></div>
+    </section>
+
+    <section id="recCard" class="card rec-card hidden">
+      <div class="rec-line">
+        <span class="rec-dot"></span>
+        <span id="recTime" class="rec-time">00:00</span>
+        <span id="recSize" class="rec-meta">0 MB</span>
+      </div>
+      <div id="recMeta" class="rec-meta"></div>
+    </section>
+
+    <section class="card settings">
+      <label class="row">
+        <span>Gravar a aba inteira</span>
+        <input type="checkbox" id="optWholeTab">
+      </label>
+      <label class="row">
+        <span>Resolução máxima</span>
+        <select id="optMaxHeight">
+          <option value="720">720p</option>
+          <option value="1080">1080p</option>
+          <option value="0">Nativa</option>
+        </select>
+      </label>
+      <label class="row">
+        <span>Ouvir durante a gravação</span>
+        <input type="checkbox" id="optMonitor" checked>
+      </label>
+    </section>
+  </div>
+
+  <div class="actions">
+    <button id="btnRecord" class="btn btn-primary">Gravar esta aba</button>
+    <button id="btnStop" class="btn btn-danger hidden">Parar e salvar</button>
+  </div>
+
+  <div class="footer">
+    <span>Salvo no arquivo escolhido</span>
+    <span class="separator">•</span>
+    <span id="lastResult" class="last-result hidden"></span>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="js/fs-handle-store.js"></script>
+  <script src="js/popup.js"></script>
+</body>
+</html>

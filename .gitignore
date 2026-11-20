@@ -1,0 +1,6 @@
+# Metadata de leitor de e-books (KOReader), não faz parte da extensão
+README.sdr/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
